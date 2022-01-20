@@ -1,0 +1,8 @@
+{{#each movies}}
+  <div class="movie-article-small">
+    <a href="/movies/{{this.id}}"><img
+        src="{{this.attributes.image.url}}"
+        alt="A movie poster of {{this.attributes.title}}"
+      /></a>
+  </div>
+{{/each}}
