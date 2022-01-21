@@ -34,6 +34,11 @@ server.get("/movies/:movieId", async (request, response) => {
   }
 });
 
+// Route display an error if any URL is not matching an existing one.
+server.get("/*", async (request, response) => {
+  response.status(404).render("error");
+});
+
 // Server port setting
 server.listen(5080);
 console.log("SERVER IS RUNNING ON PORT 5080");
