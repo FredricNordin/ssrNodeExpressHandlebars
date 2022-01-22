@@ -6,6 +6,7 @@ import { fetchMovie, fetchMovies } from "./functions/fetchMovies.js";
 
 // Express, handlebars & markdown settings
 const server = express();
+export default server; // Export so jest & supertest can do test.
 server.use(express.static("./static"));
 server.set("view engine", "handlebars");
 server.set("views", "./handlebars");
