@@ -1,10 +1,13 @@
-// Imports
+// Exports
+export default server; // Export so jest & supertest can do test.
+
+// Imports.
 import express from "express";
 import { engine } from "express-handlebars";
 import { marked } from "marked";
 import { fetchMovie, fetchMovies } from "./fetchMovies.js";
 
-// Express, handlebars & markdown settings
+// Express, handlebars & markdown settings.
 const server = express();
 server.use(express.static("./static"));
 server.set("view engine", "handlebars");
@@ -38,5 +41,3 @@ server.get("/movies/:movieId", async (request, response) => {
 server.get("/*", async (request, response) => {
   response.status(404).render("error");
 });
-
-export default server; // Export so jest & supertest can do test.
