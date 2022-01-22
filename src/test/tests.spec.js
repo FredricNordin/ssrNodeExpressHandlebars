@@ -14,7 +14,7 @@ test('Main page to give status 200 OK and check if all movie titles are correct.
     expect(response.text.includes('12 Angry Men')).toBeTruthy();
 });
 
-test('Movie page to give status 200 OK and check correct info about the movie', async () => {
+test('Movie page to give status 200 OK and check correct info about the movie.', async () => {
     const response = await request(server)
     .get('/movies/1')
     .expect(200);
