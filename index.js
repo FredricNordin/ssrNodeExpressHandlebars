@@ -1,4 +1,4 @@
-import server from './functions/server.js';
+import server from './src/js/server.js';
 
 // Server port setting
 server.listen(5080);

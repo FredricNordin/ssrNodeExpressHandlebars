@@ -7,9 +7,9 @@ import { fetchMovie, fetchMovies } from "./fetchMovies.js";
 // Express, handlebars & markdown settings.
 const server = express();
 export default server; // Export so jest & supertest can do test.
-server.use(express.static("./static"));
+server.use(express.static("./src/static"));
 server.set("view engine", "handlebars");
-server.set("views", "./handlebars");
+server.set("views", "./src/handlebars");
 server.engine(
   "handlebars",
   engine({
@@ -22,7 +22,11 @@ server.engine(
 // Route displaying all listed movies.
 server.get("/", async (request, response) => {
   const movies = await fetchMovies();
-  response.render("movies", { movies });
+  if (movies) {
+    response.render("movies", { movies });
+  } else {
+    response.status(404).render("error");
+  }
 });
 
 // Route display a single movie from ID else display an error.
