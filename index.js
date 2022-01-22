@@ -2,11 +2,11 @@
 import express from "express";
 import { engine } from "express-handlebars";
 import { marked } from "marked";
-import { fetchMovie, fetchMovies } from "./fetchMovies.js";
+import { fetchMovie, fetchMovies } from "./functions/fetchMovies.js";
 
-// Express, handlebars & marked settings
+// Express, handlebars & markdown settings
 const server = express();
-server.use(express.static("public"));
+server.use(express.static("./static"));
 server.set("view engine", "handlebars");
 server.set("views", "./handlebars");
 server.engine(
